@@ -174,7 +174,7 @@ int elastic_network(int N,            /* Number of particles */
 
         /* Output bond */
         if(r <= Rc) {
-          fprintf(output, "%d\t%d\t%f\t%f\n", i, j, K, r);
+          fprintf(output, "%d\t%d\t%f\t%f\n", offset + i, offset + j, K, r);
           nbonds++;
         }
 
