@@ -85,7 +85,11 @@ int elastic_network(int N,            /* Number of particles */
   }
 
   for(k = 0; k < dim; k++) {
-    if(L[k] < 3*Rc) L[k] = 3*Rc;
+    if(L[k] < 3*Rc) {
+      L[k] = 3*Rc;
+      fprintf(stderr, "Warning: L[%d] box dimension too narrow, increased to "
+                      "L[%d] = %f\n", k, k, L[k]);
+    }
   }
 
   /* Have we read the positions of all the particles? */
